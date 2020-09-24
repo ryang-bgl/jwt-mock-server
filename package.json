@@ -1,7 +1,16 @@
 {
-  "name": "jwt-mock-server2",
-  "version": "0.0.0",
-  "private": true,
+  "name": "jwt-mock-server",
+  "version": "0.0.1",
+  "description": "Start a mock jwt authentication server for local development",
+  "keywords": [
+    "jwt",
+    "mock",
+    "server",
+    "mock-server",
+    "jks",
+    "jwe",
+    "jwk"
+  ],
   "scripts": {
     "start": "node ./bin/www"
   },
@@ -12,5 +21,12 @@
     "morgan": "~1.9.1",
     "jsonwebtoken": "latest",
     "node-jose": "latest"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ruiyang/jwt-mock-server"
+  },
+  "license": "Apache-2.0",
+  "author": "ryang.sei@gmail.com",
+  "main": "lib/index.js"
 }
