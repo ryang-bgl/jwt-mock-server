@@ -23,3 +23,8 @@ curl --location --request POST 'localhost:9000/jwt/token' \
 --header 'Content-Type: application/json' \
 --data-raw '{"username": "user1@test.com"}'
 ```
+
+shutdown the server gracefully
+```shell
+curl --location --request GET 'localhost:9000/shutdown'
+```
