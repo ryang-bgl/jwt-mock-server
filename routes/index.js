@@ -8,6 +8,10 @@ router.get('/', function(req, res, next) {
   res.json({hello: "world!"});
 });
 
+router.get('/shutdown', function(req, res, next) {
+  res.json({hello: "world!"});
+});
+
 router.get('/.well-known/jwks.json', async function(req, res) {
   var keys = await getKeyStore();
   res.json(keys.toJSON());
