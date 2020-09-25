@@ -4,12 +4,12 @@
 
 default port 9000
 ```shell
-npx --package github:ruiyang/jwt-mock-server bin/www
+npx --package github:ruiyang/jwt-mock-server start
 ```
 
 to run in a different port 3000
 ```shell
-PORT=3000 npx --package github:ruiyang/jwt-mock-server bin/www
+PORT=3000 npx --package github:ruiyang/jwt-mock-server start
 ```
 
 ### endpoints
