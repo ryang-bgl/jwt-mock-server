@@ -28,5 +28,5 @@
   },
   "license": "Apache-2.0",
   "author": "ryang.sei@gmail.com",
-  "main": "lib/index.js"
+  "main": "bin/www"
 }
