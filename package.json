@@ -28,5 +28,7 @@
   },
   "license": "Apache-2.0",
   "author": "ryang.sei@gmail.com",
-  "main": "bin/www"
+  "main": "bin/www",
+  "bin": { "start": "bin/www"}
+  
 }
