@@ -24,10 +24,28 @@ router.post('/token', async function(req, res) {
   body["iat"] = Math.floor(Date.now() / 1000);
   body["exp"] = Math.floor(Date.now() / 1000) + 3600;
   var token = await new Promise((resolve) => {
-    jose.JWS.createSign({ alg: 'RS256', format: 'compact' }, key).
-      update(JSON.stringify(req.body)).
-      final().
-      then(function(result) {
+    jose.JWS.createSign({ alg: 'RS256', format: 'compact' }, key)
+      .update(JSON.stringify(req.body))
+      .final()
+      .then(function(result) {
+        resolve(result);
+      });
+
+  });
+  res.json({token: token});
+});
+
+router.get('/token', async function(req, res) {
+  var keys = await getKeyStore();
+  var key = keys.all()[0];
+  var body = req.query;
+  body["iat"] = Math.floor(Date.now() / 1000);
+  body["exp"] = Math.floor(Date.now() / 1000) + 3600;
+  var token = await new Promise((resolve) => {
+    jose.JWS.createSign({ alg: 'RS256', format: 'compact' }, key)
+      .update(JSON.stringify(body))
+      .final()
+      .then(function(result) {
         resolve(result);
       });
 

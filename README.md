@@ -18,10 +18,17 @@ PORT=3000 npx --package github:ruiyang/jwt-mock-server start
 curl --location --request GET 'localhost:9000/jwt/.well-known/jwks.json'
 ```
 
+get a jwt token and pass claims in post body
 ```shell
 curl --location --request POST 'localhost:9000/jwt/token' \
 --header 'Content-Type: application/json' \
 --data-raw '{"username": "user1@test.com"}'
+```
+
+get a jwt using get and pass claims in query params:
+```shell
+curl --location --request GET 'localhost:9000/jwt/token?username=abc@test.com.au&authorities=AUTH_WP&authorities=AUTH_WP2' \
+--header 'Content-Type: application/json'
 ```
 
 shutdown the server gracefully
