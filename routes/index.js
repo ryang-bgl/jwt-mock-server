@@ -50,8 +50,6 @@ router.get('/token', async function(req, res) {
   var key = keys.all()[0];
   var body = Object.keys(req.query).length > 0 ? req.query : getDefaultJwtClaim();
 
-  console.log(req.query);
-
   body["iat"] = Math.floor(Date.now() / 1000);
   body["exp"] = Math.floor(Date.now() / 1000) + 3600;
 
