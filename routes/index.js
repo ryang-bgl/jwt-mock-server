@@ -35,12 +35,26 @@ router.post('/token', async function(req, res) {
   res.json({token: token});
 });
 
+function getDefaultJwtClaim() {
+  var index = process.argv.indexOf("--claims");
+  var args = process.argv.slice(index + 1);
+  if (args.length > 0) {
+    return JSON.parse(args[0]);
+  } else {
+    return undefined;
+  }
+}
+
 router.get('/token', async function(req, res) {
   var keys = await getKeyStore();
   var key = keys.all()[0];
-  var body = req.query;
+  var body = Object.keys(req.query).length > 0 ? req.query : getDefaultJwtClaim();
+
+  console.log(req.query);
+
   body["iat"] = Math.floor(Date.now() / 1000);
   body["exp"] = Math.floor(Date.now() / 1000) + 3600;
+
   var token = await new Promise((resolve) => {
     jose.JWS.createSign({ alg: 'RS256', format: 'compact' }, key)
       .update(JSON.stringify(body))

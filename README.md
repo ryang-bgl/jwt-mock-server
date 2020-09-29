@@ -31,6 +31,16 @@ curl --location --request GET 'localhost:9000/jwt/token?username=abc@test.com.au
 --header 'Content-Type: application/json'
 ```
 
+or you can get the default claims, the default claims needs to be passed when you start the server
+
+```shell
+npx --package github:ruiyang/jwt-mock-server start --claims '{"username": "test-user@test.com"}'
+
+curl --location --request GET 'localhost:9000/jwt/token' \
+--header 'Content-Type: application/json'
+```
+
+
 shutdown the server gracefully
 ```shell
 curl --location --request GET 'localhost:9000/shutdown'
