@@ -15,11 +15,12 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1",
     "jsonwebtoken": "latest",
+    "morgan": "~1.9.1",
     "node-jose": "latest"
   },
   "repository": {
@@ -29,6 +30,7 @@
   "license": "Apache-2.0",
   "author": "ryang.sei@gmail.com",
   "main": "bin/www",
-  "bin": { "start": "bin/www"}
-  
+  "bin": {
+    "start": "bin/www"
+  }
 }
