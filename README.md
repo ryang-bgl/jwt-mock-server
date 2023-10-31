@@ -1,6 +1,14 @@
 ## A JWT mock server for local development
 
-### Run
+### Run in local
+```shell
+npm install
+npm run start
+## OR
+npm run start -- --claims '{"username": "test@test.com", "userId": 1, "authorities": ["AUTH_1"]}'
+```
+
+### Run with npx
 
 default port 9000
 ```shell

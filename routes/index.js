@@ -41,9 +41,16 @@ function getDefaultJwtClaim() {
   if (args.length > 0) {
     return JSON.parse(args[0]);
   } else {
-    return undefined;
+    return {"username": "test@test.com", "userId": 1, "authorities": ["AUTH_1"]};
   }
 }
+
+// router.options('/token', async function(req, res) {
+//   console.log("============options")
+//   var body = 'GET, POST, DELETE, PUT, PATCH';
+//   res.set('Allow', body);
+//   res.send(body);
+// });
 
 router.get('/token', async function(req, res) {
   var keys = await getKeyStore();
