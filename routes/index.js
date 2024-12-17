@@ -48,7 +48,6 @@ function getDefaultJwtClaim() {
 function getTokenExpiry() {
   var index = process.argv.indexOf("--token-expiry");
   var args = process.argv.slice(index + 1);
-  console.log("=====args", args, index)
   if (args.length > 0) {
     return JSON.parse(args[0]);
   } else {
