@@ -45,6 +45,16 @@ function getDefaultJwtClaim() {
   }
 }
 
+function getTokenExpiry() {
+  var index = process.argv.indexOf("--token-expiry");
+  var args = process.argv.slice(index + 1);
+  if (args.length > 0) {
+    return JSON.parse(args[0]);
+  } else {
+    return 3600;
+  }
+}
+
 // router.options('/token', async function(req, res) {
 //   console.log("============options")
 //   var body = 'GET, POST, DELETE, PUT, PATCH';
@@ -58,7 +68,7 @@ router.get('/token', async function(req, res) {
   var body = Object.keys(req.query).length > 0 ? req.query : getDefaultJwtClaim();
 
   body["iat"] = Math.floor(Date.now() / 1000);
-  body["exp"] = Math.floor(Date.now() / 1000) + 3600;
+  body["exp"] = Math.floor(Date.now() / 1000) + getTokenExpiry();
 
   var token = await new Promise((resolve) => {
     jose.JWS.createSign({ alg: 'RS256', format: 'compact' }, key)

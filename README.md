@@ -5,7 +5,7 @@
 npm install
 npm run start
 ## OR
-npm run start -- --claims '{"username": "test@test.com", "userId": 1, "authorities": ["AUTH_1"]}'
+npm run start -- --claims '{"username": "test@test.com", "userId": 1, "authorities": ["AUTH_1"]}'  --token-expiry 3600
 ```
 
 ### Run with npx
